@@ -42,7 +42,8 @@ for a in range(1, 11):
         left(90)
     d+=10
 
-print('bonjour')
+if True:
+    print('bonjour')
 
 turtle.exitonclick()
 mainloop()
