@@ -1,37 +1,40 @@
 from turtle import *
+from random import randint 
 
+speed(3)
 shape('turtle')
 
+#  carré rouge 
 color('red')
-
 for n in range(1, 5):
     forward(100)
     left(90)
 
+# hexagone 100 pixels de cote 
 penup()
 goto(-200, 100)
 pendown()
-
 color('blue')
 
 for n in range(1, 7):
     forward(100)
     left(60)
 
+# hexagone 150 pixels cote 
 penup()
 goto(-200, -200)
 pendown()
-
 color('yellow')
 
 for n in range(1, 7):
     forward(150)
     left(60)
 
+speed(10)
+# les 10 carrés qui s'agrandissent au fur et à mesure 
 penup()
 goto(110, 100)
 pendown()
-
 color('green')
 
 d=100
@@ -42,8 +45,43 @@ for a in range(1, 11):
         left(90)
     d+=10
 
-if True:
-    print('bonjour')
+speed(3)
+clear()
 
-turtle.exitonclick()
+# TANT QUE JE N'Y SUIS PAS, J'AVANCE !!!
+
+# ----------------------------------------
+x_objectif = randint(200, 300)
+y_objectif = randint(100, 150)
+penup()
+goto(x_objectif, y_objectif) 
+color('yellow')
+dot(25)
+goto(0,0)
+pendown()
+color('black')
+# -----------------------------------------
+# MON PROGRAMME :
+
+while xcor() != x_objectif:
+    fd(1)
+
+if xcor() == x_objectif:
+    lt(90)
+
+# while ycor() != y_objectif:
+#     fd(1)
+
+if ycor() == y_objectif:
+    lt(90)
+    bgcolor('green')
+
+
+
+     
+
+
+
+
+
 mainloop()
