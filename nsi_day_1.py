@@ -2,7 +2,6 @@ from turtle import *
 from random import randint 
 
 speed(3)
-shape('turtle')
 
 #  carré rouge 
 color('red')
@@ -63,18 +62,31 @@ color('black')
 # -----------------------------------------
 # MON PROGRAMME :
 
-while xcor() != x_objectif:
-    fd(1)
+print(x_objectif, y_objectif)
 
+
+
+compteur = 0
+yes = True 
+
+while xcor() != x_objectif:
+    if yes:
+        fd(1)
+        compteur += 1 
+    
 if xcor() == x_objectif:
     lt(90)
+    yes = False 
 
-# while ycor() != y_objectif:
-#     fd(1)
+while ycor() != y_objectif:
+    fd(1)
 
-if ycor() == y_objectif:
-    lt(90)
+if ycor() == y_objectif:    
     bgcolor('green')
+    
+print(compteur)
+
+
 
 
 
