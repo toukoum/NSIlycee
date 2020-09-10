@@ -49,12 +49,14 @@ speed(3)
 clear()
 
 # TANT QUE JE N'Y SUIS PAS, J'AVANCE !!!
+from turtle import *
+from random import *
 
 # ----------------------------------------
 x_objectif = randint(200, 300)
 y_objectif = randint(100, 150)
 penup()
-goto(x_objectif, y_objectif) 
+goto(x_objectif, y_objectif)
 color('yellow')
 dot(25)
 goto(0,0)
@@ -63,31 +65,40 @@ color('black')
 # -----------------------------------------
 # MON PROGRAMME :
 
-# print(x_objectif, y_objectif)
+print(x_objectif, y_objectif)
+
+compteur = 0
+yes = True
+
+while xcor() != x_objectif:
+    if yes:
+        fd(1)
+        compteur += 1
+    if compteur >= 250:
+        color('red')
+
+if xcor() == x_objectif:
+    lt(90)
+    yes = False
+
+yep = True
+
+while ycor() != y_objectif:
+    if yep:
+        fd(1)
+        compteur +=1
+    if compteur >= 250:
+        color('red')
+
+if ycor() == y_objectif:
+    bgcolor('green')
+    yep = False
 
 
 
-# compteur = 0
-# yes = True 
+print(compteur)
 
-# while xcor() != x_objectif:
-#     if yes:
-#         fd(1)
-#         compteur += 1 
-    
-# if xcor() == x_objectif:
-#     lt(90)
-#     yes = False 
-
-# while ycor() != y_objectif:
-#     fd(1)
-
-# if ycor() == y_objectif:    
-#     bgcolor('green')
-    
-# print(compteur)
-
-
+mainloop()
 
 
 # -------------------------------------------------
@@ -110,7 +121,7 @@ for a in range(1, 11):
         left(90)
     d-=10
 
-2 les 10 carrés qui diminue mais avec le meme centre 
+# 2 les 10 carrés qui diminue mais avec le meme centre 
 
 speed(3)
 clear()
