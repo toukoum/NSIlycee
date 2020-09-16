@@ -1,9 +1,9 @@
-from lycee import demande
+# from lycee import demande
 from turtle import *
-
+    
 
 #1 degrés en Kelvin
-x = demande('Conversion de degrés en kelvin :')
+x = int(input('Conversion de degrés en kelvin :'))
 print('{} degrés représente {} kelvin.'.format(x, x+240))
 
 #2 temps écoulé
@@ -40,10 +40,10 @@ minute_2 = minute // 60
 secondes = x - 3600*heure - 60*minute_2
 print("{} secondes représentent : {} heures, {} minutes, et {} secondes".format(x, heure, minute_2, secondes))
 
-#4 voici un programme
+#4 échange de valeurs 
 
-x = demande('Entrez la valeur de la variable x :')
-y = demande('Entrez la valeur de la variable y :')
+x = int(input('Entrez la valeur de la variable x :'))
+y = int(input('Entrez la valeur de la variable y :'))
 
 print('x =', x, 'y =', y)
 
@@ -58,11 +58,29 @@ for angle in range(360):
     fd(1.5)
     lt(1)                               #quand on a tourné 360 fois de 1° on a fait 1 tour
 
-for angle in range(360):
-    for angle in range(360):
-        lt(1.5)
+#5 bis spirale so style 
 
-    fd(1.5)
-    lt(10)                               #quand on a tourné 360 fois de 1° on a fait 1 tour
+bgcolor('black')
+colors = ['red', 'purple', 'green', 'yellow', 'blue', 'orange']
+
+speed(0)
+
+for x in range(360):
+    pencolor(colors[x%6])
+    width(x/100+1)
+    fd(x)
+    left(59)
+
+#6 puissance
+
+for x in range(7):
+    print(2**x)
+
+print('-----------')
+
+for x in range(8, 16):
+    print(2**x)
+       
+
 
 mainloop()
