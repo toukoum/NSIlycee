@@ -130,16 +130,43 @@ else:
 
 #5 Collisions si superposition ou si se touche
 
-collision = False
 
-def collision(x1, y1, L1, h1, L2, h2, x5, y5):
-    x2 = x1
-    y2 = y1+h1
+from tkinter import *
 
-    x3 = x1+L1
-    y3 = y1+h1
+fenetre=Tk()
 
-    x4 = x1+L1
-    y4 = y1
+def clavier(event):
+    global coords
 
-collision(2, 3, 2, 3, 4, 5, 8, 9)
+    touche = event.keysym
+
+    if touche =="Up":
+        coords = (coords[0], coords[1]-10)
+    elif touche =="Down":
+        coords = (coords[0], coords[1]+10)
+    elif touche =="Right":
+        coords = (coords[0]+10, coords[1])
+    elif touche =="Left":
+        coords = (coords[0]-10, coords[1]-10)
+    
+    canvas.coords(rectangle_jaune, coords[0], coords[1], coords[0]+25, coords[1]+25)
+
+    canvas.config(bg = 'green') 
+    
+    if len(canvas.find_overlapping(canvas.coords(rectangle_bleu)[0], canvas.coords(rectangle_bleu)[1], canvas.coords(rectangle_bleu)[2], canvas.coords(rectangle_bleu)[3]))>1: 
+        canvas.configure(bg = 'red')
+
+ 
+canvas = Canvas(fenetre, width=500, height=500, bg='ivory')
+coords=(0, 0)
+
+canvas.config(bg = 'green') 
+
+rectangle_jaune = canvas.create_rectangle(0, 0, 25, 25, fill="cyan")
+rectangle_bleu = canvas.create_rectangle(250, 250, 325, 325, fill="blue") 
+
+canvas.focus_set()
+canvas.bind("<Key>", clavier)
+canvas.pack()
+
+fenetre.mainloop()
