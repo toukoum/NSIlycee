@@ -1,5 +1,8 @@
 from math import *
 
+# ___________________________________________
+# EXERCICE 1 
+# ___________________________________________
 
 def factorielle(n : int) -> int :
     """fonction factorielle
@@ -29,14 +32,36 @@ def combinaisons(n_elem, n_tot : int) -> int :
     result = n_tot / (n_elem * (n_tot - n_elem))
     return result
 
+n = 5
+print(factorielle(3))       # remarquez que la valeur de n dans la fonction
+                            # factorielle n'est pas 5
+print(arrangements(3,n))    # l'argument d'une fonction peut être une variable
+print(combinaisons(n-1,n))  # l'argument d'une fonction peut être un calcul
 
-def volume_sphere(rayon : int) -> int :
-    volume = 0
-    while volume <= 10000:
-        rayon += 1
-        volume = 4/3*pi*rayon**3
-    return rayon, volume
+# _________________________________________________________________
+# EXERCICE 2
+# _________________________________________________________________
 
+
+
+def volume_sphere(rayon : int) -> int:
+    """
+        calcul le volume d'une sphère avec en paramètre le rayon 
+    """
+    volume = 4/3*pi*rayon**3
+    return volume
+
+rayon = 0
+while volume_sphere(rayon) <= 10000:                   # 1 Litre est égal à 10 000cm3
+    rayon += 1
+print("Le rayon doit être compris entre : {} et {}.".format(rayon-1, rayon+1))
+
+
+
+
+# _________________________________________________________________
+# EXERCICE 3
+# _________________________________________________________________
 
 
 def nbre_diviseur() -> int :
@@ -65,39 +90,14 @@ def nbre_diviseur() -> int :
     return factor
 
 
-
-def est_premier():
+def est_premier() -> bool:
     """
-        indique si le nombre donné précédement par l'utilisateur est premier ou non.
+        indique si le nombre donné précédement par l'utilisateur est premier ou non et retourne un booléen.
     """
     if len(nbre_diviseur()) == 2:
         return True 
     else:
         return False 
 
-def est_premier_bis():
-    
-    compteur = 2
-    nbre_diviseur()
-    while compteur <= sqrt(nombre):
-        if nbre_diviseur() % 2 == 0:
-            return ("{} n'est pas un nombre premier ".format(nbre_diviseur))   
-        compteur += 1
-    return("{} est un nombre premier ".format(nbre_diviseur))
- 
-
-
-
-
-
-
-
-n = 5
-print(factorielle(3))       # remarquez que la valeur de n dans la fonction
-                            # factorielle n'est pas 5
-print(arrangements(3,n))    # l'argument d'une fonction peut être une variable
-print(combinaisons(n-1,n))  # l'argument d'une fonction peut être un calcul
-print(volume_sphere(1))
 print(nbre_diviseur())
 print(est_premier())
-print(est_premier_bis())
