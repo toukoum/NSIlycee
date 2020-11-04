@@ -40,9 +40,13 @@ def volume_sphere(rayon : int) -> int :
 
 
 def nbre_diviseur() -> int :
+    """
+        retourne les diviseur du nombre entré par l'utilisateur
+    """
+
     nombre = 0
-    while nombre <= 0:
-        nombre = input("Entrez un nombre :")
+    while nombre <= 0:                              # verifie que le nombre entré âr l'utilisateur est positif,
+        nombre = input("Entrez un nombre :")        # et si c'est bien un nombre et pas un str ou autre 
         try :
             nombre = int(nombre)
         except ValueError:
@@ -53,15 +57,36 @@ def nbre_diviseur() -> int :
             print('Ce nombre est négatif !')
         if nombre == 0:
             print('Ce nombre est égal à zéro !')
+    # ecris tous les diviseurs de nombre 
+    factor = []
     for i in range(1, nombre+1):
         if nombre % i == 0:
-            print(i)
-    for i in range(1, nombre+1):
+            factor.append(i)
+    return factor
 
-        if nombre % i == 1:
-            if nombre == i:
-                if nombre % i == 1:
-                    print("{}est un nombre premier ".format(nombre))
+
+
+def est_premier():
+    """
+        indique si le nombre donné précédement par l'utilisateur est premier ou non.
+    """
+    if len(nbre_diviseur()) == 2:
+        return True 
+    else:
+        return False 
+
+def est_premier_bis():
+    
+    compteur = 2
+    nbre_diviseur()
+    while compteur <= sqrt(nombre):
+        if nbre_diviseur() % 2 == 0:
+            return ("{} n'est pas un nombre premier ".format(nbre_diviseur))   
+        compteur += 1
+    return("{} est un nombre premier ".format(nbre_diviseur))
+ 
+
+
 
 
 
@@ -74,3 +99,5 @@ print(arrangements(3,n))    # l'argument d'une fonction peut être une variable
 print(combinaisons(n-1,n))  # l'argument d'une fonction peut être un calcul
 print(volume_sphere(1))
 print(nbre_diviseur())
+print(est_premier())
+print(est_premier_bis())
