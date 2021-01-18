@@ -1,57 +1,57 @@
-# # ----------------------------
-# # Exercice 1
-# # ----------------------------
+# ----------------------------
+# Exercice 1
+# ----------------------------
 
-# from random import *
+from random import *
 
-# def nbre_fois(nbre_tirage, nbre_return : int) -> int:
-#     """
-#         Fonction renvoyent le nombre de fois qu'un nombre est tiré au sort d'un dictionaire.
-#     """
-#     assert(type(nbre_return) == int and type(nbre_tirage) == int)
-#     assert(nbre_return > 0 and nbre_return <= 6)
-#     assert(nbre_tirage > 0)
+def nbre_fois(nbre_tirage, nbre_return : int) -> int:
+    """
+        Fonction renvoyent le nombre de fois qu'un nombre est tiré au sort d'un dictionaire.
+    """
+    assert(type(nbre_return) == int and type(nbre_tirage) == int)
+    assert(nbre_return > 0 and nbre_return <= 6)
+    assert(nbre_tirage > 0)
 
-#     mon_diko = {1: 0, 2: 0, 3: 0, 4: 0, 5:0, 6:0}
+    mon_diko = {1: 0, 2: 0, 3: 0, 4: 0, 5:0, 6:0}
 
-#     for i in range(nbre_tirage):
-#         x = randint(1, 6)
-#         mon_diko[x] += 1
+    for i in range(nbre_tirage):
+        x = randint(1, 6)
+        mon_diko[x] += 1
     
-#     return mon_diko[nbre_return]
+    return mon_diko[nbre_return]
 
-# assert(nbre_fois(100, 1) >= 0)
-# print(nbre_fois(100, 3))
-
-
-
-# # ----------------------------
-# # Exercice 2
-# # ----------------------------
+assert(nbre_fois(100, 1) >= 0)
+print(nbre_fois(100, 3))
 
 
-# def compte_lettre(chaine_de_test : str) -> dict:
-#     """
-#         Fonction qui prend en parametre une chaine de caractère et qui renvoit un dictionaire avec les lettres
-#         présente dans la chaine de caractère et le nombre de fois où elles apparaissent.
-#     """
-#     assert(type(chaine_de_test) == str)
-#     assert(len(chaine_de_test) > 0)
 
-#     mon_diko = {}
+# ----------------------------
+# Exercice 2
+# ----------------------------
 
-#     for i in chaine_de_test:
-#         if i not in mon_diko:
-#             mon_diko[i] = 1
-#         else:
-#             mon_diko[i] += 1
+
+def compte_lettre(chaine_de_test : str) -> dict:
+    """
+        Fonction qui prend en parametre une chaine de caractère et qui renvoit un dictionaire avec les lettres
+        présente dans la chaine de caractère et le nombre de fois où elles apparaissent.
+    """
+    assert(type(chaine_de_test) == str)
+    assert(len(chaine_de_test) > 0)
+
+    mon_diko = {}
+
+    for i in chaine_de_test:
+        if i not in mon_diko:
+            mon_diko[i] = 1
+        else:
+            mon_diko[i] += 1
         
-#     return mon_diko
+    return mon_diko
 
 
-# assert(compte_lettre("hello") == {"h": 1, "e": 1, "l": 2, "o": 1})
+assert(compte_lettre("hello") == {"h": 1, "e": 1, "l": 2, "o": 1})
 
-# print(compte_lettre("comment ca va la street ??"))
+print(compte_lettre("comment ca va la street ??"))
 
 
 # ----------------------------
